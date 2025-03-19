@@ -6,9 +6,12 @@ from crewai_tools import SerperDevTool
 from dotenv import load_dotenv
 from pydantic import ConfigDict
 
-# Suppress specific warnings
+# Suppress all Pydantic related warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning, module="pydantic")
 warnings.filterwarnings("ignore", category=UserWarning, module="pydantic")
+warnings.filterwarnings("ignore", message=".*shadows an attribute.*", category=UserWarning)
+warnings.filterwarnings("ignore", message=".*is not a Python type.*", category=UserWarning)
+warnings.filterwarnings("ignore", message=".*Support for class-based.*", category=DeprecationWarning)
 
 # Load environment variables
 load_dotenv()
