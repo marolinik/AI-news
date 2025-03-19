@@ -48,7 +48,13 @@ with st.sidebar:
 def generate_content(topic):
     llm = LLM(
         model="command-r",
-        temperature=0.7
+        temperature=0.7,
+        api_key=os.getenv("COHERE_API_KEY"),
+        provider="cohere",
+        config={
+            "force_single_step": False,
+            "tools": []
+        }
     )
 
     search_tool = SerperDevTool(n_results=10)
