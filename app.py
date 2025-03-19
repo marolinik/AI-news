@@ -1,9 +1,14 @@
 import os
 import streamlit as st
+import warnings
 from crewai import Agent, Task, Crew, LLM
 from crewai_tools import SerperDevTool
 from dotenv import load_dotenv
 from pydantic import ConfigDict
+
+# Suppress specific warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning, module="pydantic")
+warnings.filterwarnings("ignore", category=UserWarning, module="pydantic")
 
 # Load environment variables
 load_dotenv()
