@@ -1,4 +1,3 @@
-
 # AI News generator
 
 This project leverages CrewAI and Cohere's Command-R:7B model to build an AI news generator!
@@ -9,11 +8,21 @@ This project leverages CrewAI and Cohere's Command-R:7B model to build an AI new
    - [Serper API Key](https://serper.dev/)
    - [Cohere API Key](https://dashboard.cohere.com/api-keys)
 
+**Environment Setup**:
+   1. Copy `.env.example` to `.env`:
+      ```bash
+      cp .env.example .env
+      ```
+   2. Edit `.env` and add your API keys:
+      ```
+      SERPER_API_KEY=your_serper_api_key_here
+      COHERE_API_KEY=your_cohere_api_key_here
+      ```
 
 **Install Dependencies**:
    Ensure you have Python 3.11 or later installed.
    ```bash
-   pip install crewai crewai-tools
+   pip install -r requirements.txt
    ```
 
 ---
