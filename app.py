@@ -58,8 +58,21 @@ def generate_content(topic):
         api_key=os.getenv("COHERE_API_KEY"),
         provider="cohere",
         model_config=ConfigDict(
-            force_single_step=False,
-            tools=[]
+            force_single_step=True,
+            tools=[{
+                "name": "search",
+                "description": "Search the web for information",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "query": {
+                            "type": "string",
+                            "description": "The search query"
+                        }
+                    },
+                    "required": ["query"]
+                }
+            }]
         )
     )
 
