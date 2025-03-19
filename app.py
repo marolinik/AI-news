@@ -3,6 +3,7 @@ import streamlit as st
 from crewai import Agent, Task, Crew, LLM
 from crewai_tools import SerperDevTool
 from dotenv import load_dotenv
+from pydantic import ConfigDict
 
 # Load environment variables
 load_dotenv()
@@ -51,10 +52,10 @@ def generate_content(topic):
         temperature=0.7,
         api_key=os.getenv("COHERE_API_KEY"),
         provider="cohere",
-        config={
-            "force_single_step": False,
-            "tools": []
-        }
+        model_config=ConfigDict(
+            force_single_step=False,
+            tools=[]
+        )
     )
 
     search_tool = SerperDevTool(n_results=10)
